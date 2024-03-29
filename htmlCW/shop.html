@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/nav/template.css">
+    <link rel="stylesheet" href="shop.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../Images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <ul class="navLinks">
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+    <h1 id="welcome">Welcome to our Shop</h1>
+    <h5 class="centered-h5">Below you will find a selection of hand-picked items following a 100% donation policy. </h5>
+
+    <div class="product-container">
+        <!-- Product items + explanation of the code-->
+        <div class="product" onclick="addToCart('Global Goals Shirt', 'images/product1.jpg', 10.99)">
+            <!-- Product image -->
+            <img src="images/product1.jpg">
+            <!-- Product details -->
+            <div class="product-details">
+                <!-- Product name -->
+                <div class="product-name">Global Goals Shirt</div>
+                <!-- Product price -->
+                <div class="product-price">£10.99</div>
+                <!-- Add to cart button -->
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+    
+        <div class="product" onclick="addToCart('Water Bottle', 'images/product2.jpg', 11.99)">
+            <img src="images/product2.jpg">
+            <div class="product-details">
+                <div class="product-name">Water Bottle</div>
+                <div class="product-price">£10.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Green Note Pad', 'images/product3.jpg', 6.99)">
+            <img src="images/product3.jpg">
+            <div class="product-details">
+                <div class="product-name">Green Note Pad</div>
+                <div class="product-price">£6.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Gender Equality Note Pad', 'images/product4.jpg', 4.99)">
+            <img src="images/product4.jpg">
+            <div class="product-details">
+                <div class="product-name">Gender Equality Note Pad</div>
+                <div class="product-price">£4.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Poster Note Book', 'images/product5.jpg', 9.99)">
+            <img src="images/product5.jpg">
+            <div class="product-details">
+                <div class="product-name">Poster Note Book</div>
+                <div class="product-price">£9.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Coaster', 'images/product6.jpg', 10.99)">
+            <img src="images/product6.jpg">
+            <div class="product-details">
+                <div class="product-name">Coaster</div>
+                <div class="product-price">£10.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Badge', 'images/product7.jpg', 1.99)">
+            <img src="images/product7.jpg">
+            <div class="product-details">
+                <div class="product-name">Badge</div>
+                <div class="product-price">£1.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Sticker Pack', 'images/product8.jpg', 12.99)">
+            <img src="images/product8.jpg">
+            <div class="product-details">
+                <div class="product-name">Sticker Pack</div>
+                <div class="product-price">£12.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Laptop Sleeve', 'images/product9.jpg', 10.99)">
+            <img src="images/product9.jpg">
+            <div class="product-details">
+                <div class="product-name">Laptop Sleeve</div>
+                <div class="product-price">£10.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+    </div>
+    <a href="https://www.globalgoals.org/goals/5-gender-equality/">Click this link to donate to a charity of your choice today!</a>
+
+    <div class="cart">
+        <!-- Cart header -->
+        <div class="cart-header">
+            <!-- Cart title -->
+            <div class="cart-title">Your Basket</div>
+            <!-- Basket icon -->
+            <div class="basket-icon"></div>
+        </div>
+        <!-- Cart items container -->
+        <div class="cart-items"></div>
+        <!-- Total price display -->
+        <div id="total-price">Total: £0.00</div>
+
+        <div class="checkout">
+            <h2>Checkout</h2>
+            <form id="checkout-form" onsubmit="return validateCheckout()">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="please enter a valid email" required>
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" required></textarea>
+                <button type="submit">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <footer>
+        <span>Page Editors:</span><br>
+        <a href="pageEditor_ST1.html">Student 1 - Rifat Bhuiyan</a><br>
+        <a href="">Student 2 - Annie Moradians</a><br>
+        <a href="">Student 3 - Excellent Longange</a><br>
+        <a href="">Student 4 - Ema Maloku</a><br>
+    </footer>
+    
+    <script>
+
+    // Function to proceed to checkout
+    function checkout() {
+    // Check if the cart is empty
+    if (Object.keys(cart).length === 0) {
+        // If the cart is empty, display a validation message
+        alert("Please add items to your basket before proceeding to checkout.");
+    }
+}
+        // Initialise an empty object to store cart items and set total price to 0
+        let cart = {};
+        let totalPrice = 0;
+    
+        // Function to add a product to the cart
+        function addToCart(productName, imageUrl, price) {
+            // Check if the product is already in the cart
+            if (cart[productName]) {
+                // If yes, increase its quantity by 1
+                cart[productName].quantity++;
+            } else {
+                // If not, add the product to the cart with a quantity of 1
+                cart[productName] = {
+                    quantity: 1,
+                    imageUrl: imageUrl,
+                    price: price
+                };
+            }
+            // Update the cart display
+            updateCart();
+        }
+    
+        // Function to remove a product from the cart
+        function removeFromCart(productName) {
+            if (cart[productName]) {
+                // If the product is in the cart
+                if (cart[productName].quantity === 1) {
+                    // If there's only one of the product, remove it from the cart
+                    delete cart[productName];
+                } else {
+                    // If there are multiple, decrease the quantity by 1
+                    cart[productName].quantity--;
+                }
+                // Update the cart display
+                updateCart();
+            }
+        }
+    
+        // Function to clear the entire cart
+        function clearCart() {
+            // Reset the cart to an empty object
+            cart = {};
+            // Update the cart display
+            updateCart();
+        }
+    
+        // Function to update the cart display
+        function updateCart() {
+            // Get the cart container element
+            const cartElement = document.querySelector('.cart-items');
+            // Clear the cart container
+            cartElement.innerHTML = '';
+            // Reset total price
+            totalPrice = 0;
+            // Loop through each item in the cart
+            for (const [productName, item] of Object.entries(cart)) {
+                // Create a div element for each item
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('item');
+                // Create an image element for the product image
+                const itemImage = document.createElement('img');
+                itemImage.src = item.imageUrl;
+                // Create a span element for the product name
+                const itemName = document.createElement('span');
+                itemName.textContent = `${productName} `;
+                // Create a span element for the product quantity
+                const itemQuantity = document.createElement('span');
+                itemQuantity.textContent = `Quantity: ${item.quantity} `;
+                // Create a button element to remove the product
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.addEventListener('click', () => removeFromCart(productName));
+                // Create a div element for the product price
+                const itemPrice = document.createElement('div');
+                itemPrice.textContent = `£${(item.price * item.quantity).toFixed(2)}`;
+                // Append all elements to the cart item container
+                cartItem.appendChild(itemImage);
+                cartItem.appendChild(itemName);
+                cartItem.appendChild(itemQuantity);
+                cartItem.appendChild(removeButton);
+                cartItem.appendChild(itemPrice);
+                // Append the cart item to the cart container
+                cartElement.appendChild(cartItem);
+                // Calculate the total price
+                totalPrice += item.price * item.quantity;
+            }
+            // Update total price element
+            document.getElementById('total-price').textContent = `Total: £${totalPrice.toFixed(2)}`;
+        }
+
+        function validateCheckout() {
+        // Validation checks
+        const fullname = document.getElementById('fullname').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+
+        // Simple email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (fullname.trim() === '' || email.trim() === '' || address.trim() === '') {
+            alert('Please fill in all required fields.');
+            return false;
+        } else if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return false;
+        } else {
+            // Proceed with purchase completion
+            alert('Thank you! Your order has been successfully placed.');
+            return true;
+        }
+    }  
+    </script>  
+</body>
+</html>

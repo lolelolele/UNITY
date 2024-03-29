@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif; /* Set the font family for the entire document */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.centered-h5 {
+    text-align: center; 
+}
+
+#welcome {
+    margin-top: 130px; /* Add top margin */
+    text-align: center; /* Center align text */
+}
+
+/* CSS styles for the navigation menu */
+nav ul {
+    list-style-type: none; /* Remove default list style */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center align text */
+}
+
+nav ul li {
+    display: inline; /* Display list items inline */
+    margin-right: 20px; /* Add right margin to each list item */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #30a57c; /* Set link colour */
+}
+
+nav ul li a:hover {
+    color: #9c2a2a; /* Change link colour on hover */
+}
+
+/* CSS styles for the product container */
+.product-container {
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: space-around; /* Distribute items evenly */
+    padding: 20px; 
+    margin-right: 220px; /* Adjusted to accommodate the width of the cart */
+}
+
+/* CSS styles for individual product items */
+.product {
+    flex: 0 0 calc(30% - 20px); /* Adjusted to show three products per row */
+    margin: 10px; /* Add margin */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; /* Add transition effect */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.product:hover {
+    transform: scale(1.1); /* Scale up product on hover */
+}
+
+.product img {
+    width: 60%; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Scale image while maintaining aspect ratio */
+}
+
+.product-details {
+    padding: 10px 0; /* Add top and bottom padding */
+}
+
+.product-name {
+    font-weight: bold; /* Set font weight to bold */
+    margin-bottom: 5px; /* Add bottom margin */
+}
+
+.product-price {
+    color: #777; /* Set text colour */
+    margin-bottom: 5px; /* Add bottom margin */
+}
+
+.add-to-cart {
+    background-color: #742f76; /* Set background colour of button */
+    color: white; /* Set text color */
+    padding: 5px 10px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.add-to-cart:hover {
+    background-color: #21825c; /* Change background colour on hover */
+}
+
+.cart {
+    position: fixed; /* Position the cart fixed to the viewport */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    background-color: #f2f2f2; /* Set background colour */
+    padding: 20px; /* Add padding */
+    width: 200px; /* Set width */
+    height: 100%; /* Set height to fill the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    z-index: 999; /* Set z-index to ensure it's above other content */
+}
+
+.cart-title {
+    font-weight: bold; /* Set font weight to bold */
+    margin-bottom: 10px; /* Add bottom margin */
+    margin-top: 100px;
+    text-align: center; /* Center align text */
+}
+
+.cart .basket-icon {
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    background-image: url('/images/basket.png'); 
+    background-size: cover; /* Cover the entire element */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    margin: auto; /* Center align horizontally and vertically */
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+.cart .item {
+    margin-bottom: 10px; /* Add bottom margin to each item */
+}
+
+.cart .item img {
+    width: 30px; /* Set width */
+    height: 30px; /* Set height */
+    margin-right: 10px; /* Add right margin */
+}
+
+/* CSS styles for the checkout section */
+.checkout-section {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center-align items horizontally */
+    margin-top: 20px; /* Add top margin */
+    position: absolute; /* Position the checkout section absolutely */
+    top: 100%; /* Place it below the cart section */
+    right: 0; /* Align it to the right */
+    left: 0; /* Stretch it to the full width */
+    background-color: #f2f2f2; /* Set background color */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+}
+
+.checkout-section h2 {
+    margin-bottom: 20px; /* Add bottom margin */
+}
+
+#checkout-form {
+    width: 85%; /* Set form width to fill its container */
+    max-width: 400px; /* Set maximum width */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+}
+
+#checkout-form button {
+    background-color: #742f76; /* Set background color */
+    color: white; /* Set text color */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+#checkout-form button:hover {
+    background-color: #21825c; /* Change background color on hover */
+}
+
+
+
+
+

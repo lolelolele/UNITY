@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif; /* Set the font family for the entire document */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-align: center;
+}
+
+/* Header styles */
+header {
+    background-color: #D8BFD8; 
+    color: #fff; /* Set the text colour */
+    text-align: center; /* Center-align the text */
+    padding: 20px; 
+    height: 100px; /* Set the height of the header */
+}
+
+/* Logo styles */
+.logo {
+    text-align: center; /* Center the logo horizontally */
+    margin-bottom: 20px; /* Add some space below the logo */
+}
+
+.logo img {
+    max-width: 100%; /* Ensure the logo doesn't exceed the width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation styles */
+nav ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center-align the list items */
+}
+
+nav ul li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 20px; /* Add margin between list items */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove default underline */
+    color: #333; /* Set link colour */
+}
+
+nav ul li a:hover {
+    color: #555; /* Change link colour on hover */
+}
+
+/* Main content styles */
+main {
+    padding: 20px; /* Add padding */
+}
+
+/* Section styles */
+section {
+    margin-bottom: 40px; /* Add margin bottom */
+}
+
+/* Footer styles */
+footer {
+    background-color: #D8BFD8; /* Set the background color */
+    color: #fff; /* Set the text color */
+    text-align: center; /* Center-align the text */
+    padding: 10px; /* Add padding */
+    position: fixed; /* Fix the footer position */
+    bottom: 0; /* Align to the bottom of the viewport */
+    width: 20%; /* Set the width of the footer */
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splash Screen</title>
+  <link rel="stylesheet" href="splash.css">
+  <link rel="stylesheet" href="nav/template.css"> 
+
+</head>
+
+<body class="welcome">
+  <!-- Elements for splash overlay and welcome message -->
+  <span id="splash-overlay" class="splash"></span>
+  <span id="welcome" class="z-depth-4"></span>
+
+  <main>
+    <!-- Page title and introductory text -->
+    <p class="bordered-title">UNITY</p>
+    <h1 class="title">WELCOME!</h1>
+    <p class="body-para">"Our goal? Making gender equality a reality."</p>
+  </main>
+
+  <!-- Image container with inline style for adjusting image size -->
+  <div style="display: center, inline-block; ">
+    <img src="/images/logo.png" alt="LOGO" style="width: 200px; height: auto;">
+  </div>
+
+  <footer>
+    <!-- Footer content including members list and copyright information -->
+    <h4><hr> Members: <br> Annie, Ema, Excellent, Sadia<hr></h4>
+    <p>&copy; UNTIY</p>
+  </footer>
+
+  <script>
+    // JavaScript code to redirect after a delay
+    setTimeout(function() {
+      window.location.href = "https://w1892798.users.ecs.westminster.ac.uk/webDev/HomePage.html";
+    }, 6000); // 6 seconds delay
+  </script>
+
+</body>
+
+</html>
