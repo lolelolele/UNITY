@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="CSS/template.css">
+
+    <style>
+        h1{
+            margin-top: 130px;
+            text-decoration: underline;
+        }
+
+        h2{
+            color: red;
+        }
+        
+        h1, h2{
+            text-align: center;
+        }
+
+        #previewHeading{
+            color: black;
+        }
+
+        fieldset{
+            border-radius: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding: 20px;
+        }
+
+        form{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button{
+            background-color: #D8BFD8;
+            color: black;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 20px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        #previewContent{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <ul class="navLinks">
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="FeedbackForm.html">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Feedback Form</h1>
+    <h2>Please complete all the questions below.</h2>
+
+    <form id="feedbackForm"> 
+        <fieldset>  
+            <b><label for="name">Name:</label></b>
+            <input type="text" name="name" id="name" placeholder="Enter name here..."><br><br>
+            
+            <b><label for="surname">Surname:</label></b>
+            <input type="text" name="surname" id="surname" placeholder="Enter surname here..."><br><br>
+      
+            <b><label for="email">Email:</label></b>
+            <input type="email" name="email" id="email" placeholder="Enter email here..." ><br><br>
+      
+            <b><span id="genderOptions">What is your gender:</span><br></b>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" id="other" value="other">
+            <label for="other">Other</label><br><br>
+        </fieldset> 
+      
+        <fieldset> 
+            <b><span>Was this your first time visiting our website?</span><br></b>
+            <input type="radio" name="visit" id="yes" value="yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" name="visit" id="no" value="no">
+            <label for="no">No</label><br><br>
+
+            <b><span>How informative was our content? Choose from 1 - 10, with 1 being "Not very informative" and 10 being "Extremely informative".
+            </span><br></b>
+            <input type="radio" name="rating" id="1" value="1">
+            <label for="1">1</label>
+            <input type="radio" name="rating" id="2" value="2">
+            <label for="2">2</label>
+            <input type="radio" name="rating" id="3" value="3">
+            <label for="3">3</label>
+            <input type="radio" name="rating" id="4" value="4">
+            <label for="4">4</label>
+            <input type="radio" name="rating" id="5" value="5">
+            <label for="5">5</label>
+            <input type="radio" name="rating" id="6" value="6">
+            <label for="6">6</label>
+            <input type="radio" name="rating" id="7" value="7">
+            <label for="7">7</label>
+            <input type="radio" name="rating" id="8" value="8">
+            <label for="8">8</label>
+            <input type="radio" name="rating" id="9" value="9">
+            <label for="9">9</label>
+            <input type="radio" name="rating" id="10" value="10">
+            <label for="10">10</label><br><br>
+
+            <b><label for="improvementFeedback">Please add any suggestions on how to improve the website:</label><br><br></b>
+            <textarea name="improvement" id="improvementFeedback" cols="50" rows="10" placeholder="Add your suggestions here..."></textarea><br><br>
+        </fieldset> 
+      
+        <button type="button" onclick="validationANDPreview()">Preview</button>
+      </form>
+      
+      <!--when page loads this div will be hidden -->
+      <div id="previewContent" style="display: none;">
+          <h2 id="previewHeading">Feedback Form Preview</h2>
+          <p><b>Name: </b><span id="previewName"></span></p>
+          <p><b>Surname: </b><span id="previewSurname"></span></p>
+          <p><b>Email: </b><span id="previewEmail"></span></p>
+          <p><b>Gender: </b><span id="previewGender"></span></p>
+          <p><b>Was this your first time visiting our website: </b><span id="previewVisit"></span></p>
+          <p><b>How informative was our content: </b><span id="previewRating"></span></p>
+          <p><b>Suggestions to improve the website:</b><span id="previewImprovement"></span></p>
+      
+          <button type="button" onclick="editFeedback()">Edit</button>
+          <button type="button" onclick="submitFeedback()">Submit</button>
+      </div>  
+      <script>
+        //a function that first validates the form input fields and then displaying a preview before submission
+        function validationANDPreview() {
+        var form = document.getElementById("feedbackForm");
+        var firstInvalidField = null;
+        
+        // Check validity of all form fields
+        for (var i = 0; i < form.elements.length; i++) {
+            if (!form.elements[i].checkValidity()) {
+                if (!firstInvalidField) {
+                    firstInvalidField = form.elements[i];
+                }
+            }
+        }
+            // Proceed to preview the form
+            var name = document.getElementById("name").value;
+            var surname = document.getElementById("surname").value;
+            var email = document.getElementById("email").value;
+            var gender = getRadioValue(document.getElementsByName("gender"));
+            var visit = getRadioValue(document.getElementsByName("visit"));
+            var rating = getRadioValue(document.getElementsByName("rating"));
+            var improvement = document.getElementById("improvementFeedback").value;
+
+            // Check if any required field is empty
+            if (name === "" || surname === "" || email === "" || gender === "" || visit === "" || rating === "" || improvement === "") {
+                alert("Please complete all the required fields.");
+                return;
+            }
+
+            // Validate email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Preview the form
+            document.getElementById("previewName").textContent = name;
+            document.getElementById("previewSurname").textContent = surname;
+            document.getElementById("previewEmail").textContent = email;
+            document.getElementById("previewGender").textContent = gender;
+            document.getElementById("previewVisit").textContent = visit;
+            document.getElementById("previewRating").textContent = rating;
+            document.getElementById("previewImprovement").textContent = improvement;
+
+            document.getElementById("feedbackForm").style.display = "none";
+            document.getElementById("previewContent").style.display = "block";
+            }
+
+
+        function getRadioValue(radioArray) {
+            for (var i = 0; i < radioArray.length; i++) {
+                if (radioArray[i].checked) { 
+                return radioArray[i].value;
+                }
+            }
+            return "";
+        }
+
+        function editFeedback() {
+            document.getElementById("feedbackForm").style.display = "block";
+            document.getElementById("previewContent").style.display = "none";
+        }
+
+        function submitFeedback() {
+            var name = document.getElementById("name").value;
+            var surname = document.getElementById("surname").value;
+            var email = document.getElementById("email").value;
+            var gender = getRadioValue(document.getElementsByName("gender"));
+            var visit = getRadioValue(document.getElementsByName("visit"));
+            var rating = getRadioValue(document.getElementsByName("rating"));
+            var improvement = document.getElementById("improvementFeedback").value;
+
+            var emailBody = "Thank you for taking the time to complete our form, your feedback helps us improve our website.\n" +
+                            "Name: " + name + "\n" +
+                            "Surname: " + surname + "\n" +
+                            "Email: " + email + "\n" +
+                            "Gender: " + gender + "\n" +
+                            "Visit: " + visit + "\n" +
+                            "Rating: " + rating + "\n" +
+                            "Improvement: " + improvement;
+
+        // Construct mailto link
+        var emailLink = "mailto:" + email +
+                        "?subject=Feedback Form Confirmation" +
+                        "&body=" + encodeURIComponent(emailBody);
+
+        // Open default email client with pre-filled data
+        window.location.href = emailLink;
+        alert("Thank you for completing the feedback form! You will shortly receive an email.");
+        }
+      </script>
+    <footer>
+        <span>Page Editors:</span><br>
+        <a href="">Student 1 - Rifat Bhuiyan</a><br>
+        <a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST2.html">Student 2 - Annie Moradians</a><br>
+        <a href="">Student 3 - Ema Maloku</a><br>
+        <a href="">Student 4 - Excellent Longange</a><br>
+    </footer>
+</body>
+</html>
