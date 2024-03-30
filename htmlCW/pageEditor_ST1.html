@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Student 1</title>
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="/CSS/template.css">
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe9ec; 
+}
+
+.header {
+    position: relative; /* Ensure the header is positioned relatively */
+    z-index: 1; /* Ensure the header has a lower z-index value */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.link {
+    display: block;
+    margin-bottom: 5px;
+    color: #3074d9; /* color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+}
+
+.link:hover {
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+.navbar {
+    background-color: #D8BFD8;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.navLinks {
+    list-style: none;
+}
+
+.navLinks li {
+    display: inline;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.navbar img {
+    height: 110px;
+    margin-right: 0;
+}
+.navLinks li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+#websiteName {
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 80px;
+}
+a:hover {
+    background-color: azure;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header section containing the navigation bar -->
+    <header>
+        <nav class="navbar">
+            <!-- Website logo and name -->
+            <div class="logo">
+                <img src="/images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <!-- List of navigation links -->
+            <ul class="navLinks">
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <div class="container">
+        <!-- Heading indicating the page editor and student -->
+        <h2><u>Welcome to my Page Editor</u> - <i>Student 1</i></h2>
+        <!-- Introduction paragraph -->
+        <p>Below, you will find the links to my webpages, as well as a brief description of what I have done.</p>
+        <p>These are the links to my pages:</p>
+
+        <!-- Link to the splash screen page -->
+        <h2><a href="splash.html" class="link">Splash Screen</a></h2>
+        <!-- Description of the splash screen page -->
+        <p>For the <b>splash screen</b>, I have decided to go for more of an animated approach, allowing the user to experience a premium feel when entering the webpage. To enhance the user experience, I added a 7-second timed screen to move onto the homepage automatically. Most animations were achieved using CSS, giving the page a dynamic and engaging appearance. Additionally, I incorporated a logo on the splash screen because it represents the mission and identity of the website, adding a touch of brand personality right from the start. </p>
+
+        <!-- Link to the shop page -->
+        <h2><a href="shop.html" class="link">Shop Page</a></h2>
+        <!-- Description of the shop page -->
+        <p>For the <b>shop page</b>, I needed to ensure the user is able to browse multiple items, deciding on 9 items to sell. CSS and JavaScript were used to add user interactivity, enabling features such as adding multiple items to the basket, removing them, adding multiple quantities, and proceeding to checkout. This combination of languages enhances the user experience, providing a seamless shopping journey.  </p>
+
+        <!-- Link to content page 3 -->
+        <h2><a href="content_ST1.html" class="link">Content Page STUDENT 1 </a></h2>
+        <!-- Description of content page 3 -->
+        <p>For my <b>content page</b>, I aimed to highlight the objectives and aspirations of our website. I intentionally styled the page to ensure all text is centrally aligned, offering a polished presentation. Additionally, I incorporated an image to complement the content and included a comprehensive "Contact Us" section at the bottom. This section features essential contact details such as an email address, phone number, and physical address, enriching the overall user experience by fostering easy communication and engagement.</p>
+    </div>
+
+</body>
+</html>

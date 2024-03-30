@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/CSS/template.css">
+ 
+    <style>
+        body {
+    font-family: Arial, sans-serif; /* Set the font family for the entire document */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.centered-h5 {
+    text-align: center; 
+}
+
+#welcome {
+    margin-top: 130px; /* Add top margin */
+    text-align: center; /* Center align text */
+}
+
+/* CSS styles for the navigation menu */
+nav ul {
+    list-style-type: none; /* Remove default list style */
+    padding: 0; /* Remove default padding */
+    text-align: center; /* Center align text */
+}
+
+nav ul li {
+    display: inline; /* Display list items inline */
+    margin-right: 20px; /* Add right margin to each list item */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #30a57c; /* Set link colour */
+}
+
+nav ul li a:hover {
+    color: #9c2a2a; /* Change link colour on hover */
+}
+
+/* CSS styles for the product container */
+.product-container {
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: space-around; /* Distribute items evenly */
+    padding: 20px; 
+    margin-right: 220px; /* Adjusted to accommodate the width of the cart */
+}
+
+/* CSS styles for individual product items */
+.product {
+    flex: 0 0 calc(30% - 20px); /* Adjusted to show three products per row */
+    margin: 10px; /* Add margin */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.3s ease; /* Add transition effect */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.product:hover {
+    transform: scale(1.1); /* Scale up product on hover */
+}
+
+.product img {
+    width: 60%; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Scale image while maintaining aspect ratio */
+}
+
+.product-details {
+    padding: 10px 0; /* Add top and bottom padding */
+}
+
+.product-name {
+    font-weight: bold; /* Set font weight to bold */
+    margin-bottom: 5px; /* Add bottom margin */
+}
+
+.product-price {
+    color: #777; /* Set text colour */
+    margin-bottom: 5px; /* Add bottom margin */
+}
+
+.add-to-cart {
+    background-color: #742f76; /* Set background colour of button */
+    color: white; /* Set text color */
+    padding: 5px 10px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.add-to-cart:hover {
+    background-color: #21825c; /* Change background colour on hover */
+}
+
+.cart {
+    position: fixed; /* Position the cart fixed to the viewport */
+    top: 0; /* Align to the top */
+    right: 0; /* Align to the right */
+    background-color: #f2f2f2; /* Set background colour */
+    padding: 20px; /* Add padding */
+    width: 200px; /* Set width */
+    height: 100%; /* Set height to fill the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    z-index: 999; /* Set z-index to ensure it's above other content */
+}
+
+.cart-title {
+    font-weight: bold; /* Set font weight to bold */
+    margin-bottom: 10px; /* Add bottom margin */
+    margin-top: 100px;
+    text-align: center; /* Center align text */
+}
+
+.cart .basket-icon {
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    background-image: url('/images/basket.png'); 
+    background-size: cover; /* Cover the entire element */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    margin: auto; /* Center align horizontally and vertically */
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+.cart .item {
+    margin-bottom: 10px; /* Add bottom margin to each item */
+}
+
+.cart .item img {
+    width: 30px; /* Set width */
+    height: 30px; /* Set height */
+    margin-right: 10px; /* Add right margin */
+}
+
+/* CSS styles for the checkout section */
+.checkout-section {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center-align items horizontally */
+    margin-top: 20px; /* Add top margin */
+    position: absolute; /* Position the checkout section absolutely */
+    top: 100%; /* Place it below the cart section */
+    right: 0; /* Align it to the right */
+    left: 0; /* Stretch it to the full width */
+    background-color: #f2f2f2; /* Set background color */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+}
+
+.checkout-section h2 {
+    margin-bottom: 20px; /* Add bottom margin */
+}
+
+#checkout-form {
+    width: 85%; /* Set form width to fill its container */
+    max-width: 400px; /* Set maximum width */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+}
+
+#checkout-form button {
+    background-color: #742f76; /* Set background color */
+    color: white; /* Set text color */
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+#checkout-form button:hover {
+    background-color: #21825c; /* Change background color on hover */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../Images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <ul class="navLinks">
+                <li><a href="">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+    <h1 id="welcome">Welcome to our Shop</h1>
+    <h5 class="centered-h5">Below you will find a selection of hand-picked items following a 100% donation policy. </h5>
+
+    <div class="product-container">
+        <!-- Product items + explanation of the code-->
+        <div class="product" onclick="addToCart('Global Goals Shirt', 'images/product1.jpg', 10.99)">
+            <!-- Product image -->
+            <img src="images/product1.jpg">
+            <!-- Product details -->
+            <div class="product-details">
+                <!-- Product name -->
+                <div class="product-name">Global Goals Shirt</div>
+                <!-- Product price -->
+                <div class="product-price">£10.99</div>
+                <!-- Add to cart button -->
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+    
+        <div class="product" onclick="addToCart('Water Bottle', 'images/product2.jpg', 11.99)">
+            <img src="images/product2.jpg">
+            <div class="product-details">
+                <div class="product-name">Water Bottle</div>
+                <div class="product-price">£10.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Green Note Pad', 'images/product3.jpg', 6.99)">
+            <img src="images/product3.jpg">
+            <div class="product-details">
+                <div class="product-name">Green Note Pad</div>
+                <div class="product-price">£6.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Gender Equality Note Pad', 'images/product4.jpg', 4.99)">
+            <img src="images/product4.jpg">
+            <div class="product-details">
+                <div class="product-name">Gender Equality Note Pad</div>
+                <div class="product-price">£4.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Poster Note Book', 'images/product5.jpg', 9.99)">
+            <img src="images/product5.jpg">
+            <div class="product-details">
+                <div class="product-name">Poster Note Book</div>
+                <div class="product-price">£9.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Coaster', 'images/product6.jpg', 10.99)">
+            <img src="images/product6.jpg">
+            <div class="product-details">
+                <div class="product-name">Coaster</div>
+                <div class="product-price">£10.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Badge', 'images/product7.jpg', 1.99)">
+            <img src="images/product7.jpg">
+            <div class="product-details">
+                <div class="product-name">Badge</div>
+                <div class="product-price">£1.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Sticker Pack', 'images/product8.jpg', 12.99)">
+            <img src="images/product8.jpg">
+            <div class="product-details">
+                <div class="product-name">Sticker Pack</div>
+                <div class="product-price">£12.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+
+        <div class="product" onclick="addToCart('Laptop Sleeve', 'images/product9.jpg', 10.99)">
+            <img src="images/product9.jpg">
+            <div class="product-details">
+                <div class="product-name">Laptop Sleeve</div>
+                <div class="product-price">£10.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>  
+        </div>
+    </div>
+    <a href="https://www.globalgoals.org/goals/5-gender-equality/">Click this link to donate to a charity of your choice today!</a>
+
+    <div class="cart">
+        <!-- Cart header -->
+        <div class="cart-header">
+            <!-- Cart title -->
+            <div class="cart-title">Your Basket</div>
+            <!-- Basket icon -->
+            <div class="basket-icon"></div>
+        </div>
+        <!-- Cart items container -->
+        <div class="cart-items"></div>
+        <!-- Total price display -->
+        <div id="total-price">Total: £0.00</div>
+
+        <div class="checkout">
+            <h2>Checkout</h2>
+            <form id="checkout-form" onsubmit="return validateCheckout()">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="please enter a valid email" required>
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" required></textarea>
+                <button type="submit">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <footer>
+        <span>Page Editors:</span><br>
+        <a href="pageEditor_ST1.html">Student 1 - Rifat Bhuiyan</a><br>
+        <a href="">Student 2 - Annie Moradians</a><br>
+        <a href="">Student 3 - Excellent Longange</a><br>
+        <a href="">Student 4 - Ema Maloku</a><br>
+    </footer>
+    
+    <script>
+
+    // Function to proceed to checkout
+    function checkout() {
+    // Check if the cart is empty
+    if (Object.keys(cart).length === 0) {
+        // If the cart is empty, display a validation message
+        alert("Please add items to your basket before proceeding to checkout.");
+    }
+}
+        // Initialise an empty object to store cart items and set total price to 0
+        let cart = {};
+        let totalPrice = 0;
+    
+        // Function to add a product to the cart
+        function addToCart(productName, imageUrl, price) {
+            // Check if the product is already in the cart
+            if (cart[productName]) {
+                // If yes, increase its quantity by 1
+                cart[productName].quantity++;
+            } else {
+                // If not, add the product to the cart with a quantity of 1
+                cart[productName] = {
+                    quantity: 1,
+                    imageUrl: imageUrl,
+                    price: price
+                };
+            }
+            // Update the cart display
+            updateCart();
+        }
+    
+        // Function to remove a product from the cart
+        function removeFromCart(productName) {
+            if (cart[productName]) {
+                // If the product is in the cart
+                if (cart[productName].quantity === 1) {
+                    // If there's only one of the product, remove it from the cart
+                    delete cart[productName];
+                } else {
+                    // If there are multiple, decrease the quantity by 1
+                    cart[productName].quantity--;
+                }
+                // Update the cart display
+                updateCart();
+            }
+        }
+    
+        // Function to clear the entire cart
+        function clearCart() {
+            // Reset the cart to an empty object
+            cart = {};
+            // Update the cart display
+            updateCart();
+        }
+    
+        // Function to update the cart display
+        function updateCart() {
+            // Get the cart container element
+            const cartElement = document.querySelector('.cart-items');
+            // Clear the cart container
+            cartElement.innerHTML = '';
+            // Reset total price
+            totalPrice = 0;
+            // Loop through each item in the cart
+            for (const [productName, item] of Object.entries(cart)) {
+                // Create a div element for each item
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('item');
+                // Create an image element for the product image
+                const itemImage = document.createElement('img');
+                itemImage.src = item.imageUrl;
+                // Create a span element for the product name
+                const itemName = document.createElement('span');
+                itemName.textContent = `${productName} `;
+                // Create a span element for the product quantity
+                const itemQuantity = document.createElement('span');
+                itemQuantity.textContent = `Quantity: ${item.quantity} `;
+                // Create a button element to remove the product
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.addEventListener('click', () => removeFromCart(productName));
+                // Create a div element for the product price
+                const itemPrice = document.createElement('div');
+                itemPrice.textContent = `£${(item.price * item.quantity).toFixed(2)}`;
+                // Append all elements to the cart item container
+                cartItem.appendChild(itemImage);
+                cartItem.appendChild(itemName);
+                cartItem.appendChild(itemQuantity);
+                cartItem.appendChild(removeButton);
+                cartItem.appendChild(itemPrice);
+                // Append the cart item to the cart container
+                cartElement.appendChild(cartItem);
+                // Calculate the total price
+                totalPrice += item.price * item.quantity;
+            }
+            // Update total price element
+            document.getElementById('total-price').textContent = `Total: £${totalPrice.toFixed(2)}`;
+        }
+
+        function validateCheckout() {
+        // Validation checks
+        const fullname = document.getElementById('fullname').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+
+        // Simple email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (fullname.trim() === '' || email.trim() === '' || address.trim() === '') {
+            alert('Please fill in all required fields.');
+            return false;
+        } else if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return false;
+        } else {
+            // Proceed with purchase completion
+            alert('Thank you! Your order has been successfully placed.');
+            return true;
+        }
+    }  
+    </script>  
+</body>
+</html>
