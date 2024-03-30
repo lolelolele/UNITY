@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="CSS/template.css">
+
+    <style>
+        main #missionHeading{
+            margin-top: 130px;
+            text-decoration: underline;
+        }
+
+        main h1{
+            text-align: center;
+            text-decoration: underline;
+        }
+        main .missionContent{
+            margin-left: 30px;
+            margin-right: 30px;
+        } 
+
+        .interactiveImage {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .interactiveImage img {
+            width: 200px;
+            height: auto;
+            transition: opacity 0.3s;
+            width: 200px; 
+            height: auto;
+            transition: opacity 0.3s;
+        }
+    
+        .interactiveTiles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 20px; 
+        }
+
+        .interactiveImage {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .interactiveImage:hover img {
+            opacity: 0.7;
+        }
+
+        .interactiveImage .textOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  /*Centering content horizontally or vertically*/
+            align-items: center;
+        }
+
+        .interactiveImage:hover .textOverlay {
+            opacity: 1;
+        }
+
+        .interactiveImage .textOverlay h2 {
+            margin-bottom: 10px;
+        }
+
+        .interactiveImage .textOverlay button {
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        .interactiveImage .textOverlay button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <ul class="navLinks">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="feedback.html">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 id="missionHeading">Our Mission</h1>
+        <p class="missionContent">"What is our goal?" Making Gender Equality a Reality. We're here to empower every individual, break biases, and build a society where opportunities are not limited by gender."</p>
+        <p class="missionContent">Through our online platform, we hope to inspire genuine change towards gender equality. We are committed to providing a safe and inclusive environment in which people of all genders can interact, learn, and thrive alongside each other. By raising awareness, addressing preconceptions, and lifting different voices, we hope to enable everyone to reach their full potential, free of gender bias and discrimination. We're working together to create a future in which equality is more than a goal, but a reality for everyone.</p>
+
+        <h1>Content Pages</h1>
+        <div class="interactiveTiles">
+            <div class="interactiveImage" onclick="redirectToPage('...')">
+                <img src="Images/overview.jpg" alt="A man and woman at an equal level.">
+                <div class="textOverlay">
+                    <h2>About Us</h2>
+                    <button onclick="redirectToPage('...')">More Info</button>
+                </div>
+            </div>
+    
+            <div class="interactiveImage" onclick="redirectToPage('content_ST2.html')">
+                <img src="Images/achievements.jpg" alt="A man working on a computer.">
+                <div class="textOverlay">
+                    <h2>Our Achievements</h2>
+                    <button onclick="redirectToPage('content_ST2.html')">More Info</button>
+                </div>
+            </div>
+    
+            <div class="interactiveImage" onclick="redirectToPage('...')">
+                <img src="Images/goals.jpg" alt="A young girl studying on her laptop.">
+                <div class="textOverlay">
+                    <h2>Our Future Goals</h2>
+                    <button onclick="redirectToPage('...')">More Info</button>
+                </div>
+            </div>
+    
+            <div class="interactiveImage" onclick="redirectToPage('...')">
+                <img src="Images/help.jpg" alt="A group of men and women being happy together.">
+                <div class="textOverlay">
+                    <h2>How can you help?</h2>
+                    <button onclick="redirectToPage('...')">More Info</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span>Page Editors:</span><br>
+        <a href="">Student 1 - Rifat Bhuiyan</a><br>
+        <a href="pageEditor_ST2.html">Student 2 - Annie Moradians</a><br>
+        <a href="">Student 3 - Ema Maloku</a><br>
+        <a href="">Student 4 - Excellent Longange</a><br>
+    </footer>
+
+    <script>
+        function redirectToPage(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
