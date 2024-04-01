@@ -1,0 +1,27 @@
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Images/logo.png" alt="Website Logo">
+            <span id="websiteName">UNITY</span>
+        </div>
+        <ul class="navLinks">
+            <li><a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/home.html">Home</a></li>
+            <li><a href="" >Gallery</a></li>
+            <li><a href="https://w1947494.users.ecs.westminster.ac.uk/UNITY/shop.html">Shop</a></li>
+            <li><a href="">User Profile</a></li>
+            <li><a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/feedback.html">Feedback Form</a></li>
+            <li><a href="">Sitemap</a></li>
+            <li><a href="">Team</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- FOOTER -->
+<footer>
+    <span>Page Editors:</span><br>
+    <a href="https://w1947494.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST1.html">Student 1 - Rifat Bhuiyan</a><br>
+    <a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST2.html">Student 2 - Annie Moradians</a><br>
+    <a href="">Student 3 - Ema Maloku</a><br>
+    <a href="">Student 4 - Excellent Longange</a><br>
+</footer>
