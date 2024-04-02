@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet"
+    href="CSS/template.css" >
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           
+            color: #0a0808;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #6534b9;
+            border-style: solid;
+            border-radius: 10px;
+            border-color: rgb(173, 109, 233);
+            padding: 5px;
+            background-color: rgb(255, 255, 255); 
+            text-decoration: underline;
+            margin-top: 130px;
+        }
+        #progressBar {
+            width: 100%;
+            height: 20px;
+            background-color: #de9bf0;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        #progressBar .progress {
+            height: 100%;
+            background-color: #76cf76; 
+            transition: width 0.5s ease;
+        }
+        #progressBar.complete .progress {
+            background-color: #a9238e; 
+        }
+        #progressBar::after {
+            content: attr(data-completion);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #2b2828;
+        }
+        .hidden {
+            display: none;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #060606;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #673AB7; 
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #9C27B0; 
+        }
+        button[type="submit"] {
+            background-color: #4CAF50; 
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049; 
+        }
+        #profileOutput {
+            background-color:#a9238e;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        legend {
+          text-decoration: underline;
+        }
+        footer{
+            margin-top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <ul class="navLinks">
+                <li><a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/home.html">Home</a></li>
+                <li><a href="" >Gallery</a></li>
+                <li><a href="https://w1947494.users.ecs.westminster.ac.uk/UNITY/shop.html">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/feedback.html">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>User Profile</h1>
+    <div id="progressBar" data-completion="0% Completed">
+        <div id="progress" class="progress" style="width: 0;"></div>
+    </div>
+    <form id="profileForm">
+        <!-- Personal Information -->
+        <fieldset id="step1">
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+            <button type="button" onclick="validateStep1()">Next</button>
+        </fieldset>
+
+        <!-- Additional Information -->
+        <fieldset id="step2" class="hidden">
+            <legend>Additional Information</legend>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+            <label for="interests">Interests:</label>
+            <input type="text" id="interests" name="interests"><br>
+            <button type="button" onclick="prevStep()">Previous</button>
+            <button type="button" onclick="nextStep()">Next</button>
+        </fieldset>
+
+        <!-- Optional Details -->
+        <fieldset id="step3" class="hidden">
+            <legend>Optional Details</legend>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio"></textarea><br>
+            <button type="button" onclick="prevStep()">Previous</button>
+            <button type="button" onclick="nextStepToVolunteering()">Next</button>
+        </fieldset>
+
+        <!-- Volunteering Details -->
+        <fieldset id="step4" class="hidden">
+            <legend>Volunteering Details</legend>
+            <label for="volunteerExperience">Have you had any previous volunteering experience? If yes, please describe:</label><br>
+            <textarea id="volunteerExperience" name="volunteerExperience"></textarea><br>
+            
+            <label for="availability">What days/times are you available for volunteering?</label><br>
+            <input type="text" id="availability" name="availability"><br>
+            
+            <label for="skills">Do you have any specific skills or expertise that you would like to contribute as a volunteer?</label><br>
+            <textarea id="skills" name="skills"></textarea><br>
+            
+            <button type="button" onclick="prevStep()">Previous</button>
+            <button type="button" onclick="nextStepToQualifications()">Next</button>
+        </fieldset>
+
+        <!-- Qualifications -->
+        <fieldset id="step5" class="hidden">
+            <legend>Qualifications</legend>
+            <label for="education">Education:</label><br>
+            <input type="text" id="education" name="education"><br>
+            
+            <label for="workExperience">Work Experience:</label><br>
+            <textarea id="workExperience" name="workExperience"></textarea><br>
+            
+            <label for="certifications">Certifications:</label><br>
+            <textarea id="certifications" name="certifications"></textarea><br>
+            
+            <button type="button" onclick="prevStep()">Previous</button>
+            <button type="submit">Finish</button>
+        </fieldset>
+    </form>
+
+    <div id="profileOutput" class="hidden">
+        
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
+        const profileForm = document.getElementById('profileForm');
+        const profileOutput = document.getElementById('profileOutput');
+        let currentStep = 1;
+       
+        function updateProgress() {
+            const totalSteps = profileForm.querySelectorAll('fieldset').length - 1; // Exclude the "Finish" step
+            const completedSteps = currentStep - 1;
+            const progressPercentage = (completedSteps / totalSteps) * 100;
+            progress.style.width = `${progressPercentage}%`;
+            progressBar.dataset.completion = `${progressPercentage.toFixed(0)}% Completed`;
+
+            if (completedSteps === totalSteps) {
+                progressBar.classList.add('complete');
+            } else {
+                progressBar.classList.remove('complete');
+            }
+        }
+
+        function nextStep() {
+            const currentFieldset = document.getElementById(`step${currentStep}`);
+            currentFieldset.classList.add('hidden');
+            currentStep++;
+            const nextFieldset = document.getElementById(`step${currentStep}`);
+            nextFieldset.classList.remove('hidden');
+            updateProgress();
+        }
+
+        function prevStep() {
+            const currentFieldset = document.getElementById(`step${currentStep}`);
+            currentFieldset.classList.add('hidden');
+            currentStep--;
+            const prevFieldset = document.getElementById(`step${currentStep}`);
+            prevFieldset.classList.remove('hidden');
+            updateProgress();
+        }
+
+        function nextStepToVolunteering() {
+            const currentFieldset = document.getElementById(`step${currentStep}`);
+            currentFieldset.classList.add('hidden');
+            currentStep = 4;
+            const volunteeringFieldset = document.getElementById(`step${currentStep}`);
+            volunteeringFieldset.classList.remove('hidden');
+            updateProgress();
+        }
+
+        function nextStepToQualifications() {
+            const currentFieldset = document.getElementById(`step${currentStep}`);
+            currentFieldset.classList.add('hidden');
+            currentStep = 5; 
+            const qualificationsFieldset = document.getElementById(`step${currentStep}`);
+            qualificationsFieldset.classList.remove('hidden');
+            updateProgress();
+        }
+
+        function displayProfile() {
+            profileOutput.innerHTML = `
+                <h2>Profile Information</h2>
+                <p><strong>Name:</strong> ${document.getElementById('name').value}</p>
+                <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
+                <p><strong>Gender:</strong> ${document.getElementById('gender').value}</p>
+                <p><strong>Interests:</strong> ${document.getElementById('interests').value}</p>
+                <p><strong>Bio:</strong> ${document.getElementById('bio').value}</p>
+                <p><strong>Volunteer Experience:</strong> ${document.getElementById('volunteerExperience').value}</p>
+                <p><strong>Availability:</strong> ${document.getElementById('availability').value}</p>
+                <p><strong>Skills:</strong> ${document.getElementById('skills').value}</p>
+                <p><strong>Education:</strong> ${document.getElementById('education').value}</p>
+                <p><strong>Work Experience:</strong> ${document.getElementById('workExperience').value}</p>
+                <p><strong>Certifications:</strong> ${document.getElementById('certifications').value}</p>
+            `;
+            profileOutput.classList.remove('hidden');
+        }
+
+        function validateStep1() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (name === '' || email === '') {
+                alert('Please enter your name and email.');
+            } else if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+            } else {
+                nextStep();
+            }
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        profileForm.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const answeredQuestions = document.querySelectorAll('input[type=text], input[type=email], textarea, select');
+            const totalQuestions = answeredQuestions.length;
+            let answeredCount = 0;
+            answeredQuestions.forEach(question => {
+                if (question.value.trim() !== '') {
+                    answeredCount++;
+                }
+            });
+            const completionPercentage = ((answeredCount / totalQuestions) * 100).toFixed(0);
+            progressBar.dataset.completion = `${completionPercentage}% Complete`;
+            displayProfile(); 
+        });
+
+        window.addEventListener('load', () => {
+            updateProgress();
+        });
+    </script>
+    <!-- FOOTER -->
+<footer>
+    <span>Page Editors:</span><br>
+    <a href="https://w1947494.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST1.html">Student 1 - Rifat Bhuiyan</a><br>
+    <a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST2.html">Student 2 - Annie Moradians</a><br>
+    <a href="">Student 3 - Ema Maloku</a><br>
+    <a href="">Student 4 - Excellent Longange</a><br>
+</footer>
+</body>
+</html>

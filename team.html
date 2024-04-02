@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Page</title>
+    <link rel="stylesheet"
+    href="CSS/template.css">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=FgXOMm2uY2OOHKjVWgiNppwMm8zzyw0pp3VllfmgIJ9wnTAVH-E5i81LKTU_FtIRitAzNWgED9yplGIA0ZUPeBjpuHy3NFml1cFZvYEivgWjeOqF58mMw7_Gx4-I-H9vvIw5qvyFwncGGiQeYRWrxV2qeJemIb3RXjlKc6AKbUaL3Ro8ItLcdXaGWpMBHjzU7ERPFGkpQu6d3nJINLM7utD0wIDGY9GAsdgmTtfjqyptIGKBRBId24gmyAwKWDNoHL0ORwzoCliw96i1JEk46mZBaiKoPvJP7mMq9N0ie-Z8xdEQ1A4thnVDcm6oE-bbLtMoOdmf5HfvPqiOlEcNVMYkbjzXA-j01AXfl-zP66EyYel96pSIBpg7S7pFSsF8HuZCUL_7iBKNWJknCPGMvU261qtPwDki8ZFG3rRyyCCsqg7jSbTa3hp7DK0itTd6J2b0QNVcXwmbA057IO1dit9QPdlTkN7CvkJao_5x8wCEtZ92fo9nCx2kIpelARxNM71GahvBC5Am0z7cSJqTyRDCCqkzHm9TdmdOX1bTttw5hXigcaWIm20rP53ggoePjWr8cFL6q0fxHQ-g4IMJFb-b9REaVqPou-jp5vMMGM91S2fgWbdgNpH12UjO5pM4i23KMRCvewcvCmLiEnHEL2FLI7luElobrzm-2OlUSXUJABcFRP-ja3uZyn56Yj0X1-kGMSKwL86bWy8im5w6Vt5gW5dN_HbU_FbkKJTPpMR_ODZ7aIlkZZg1c59sNRHvqM-3jHZ4_CEXujS9WWwi2HyNR8WTuCiCwvZniXRCckWPj9bFLhmQgagSTDtazfUQYosthO9JCMSfuX8BiZWR9NsaNhpny5jaWDJhNaGmU2B1_3u5r-uYNqBRaHOvufPAs0kvNisqszLAYhjJMLZs1GjJq3h0ubVCaqQQoobgm9fudkMiLvuqElm9F4-B8nHFcbQMrFW83Ydm5A_w0HxGGjXO5Y8PMVLCrBbq9_zubJYtMF_Ve4y4dnkpbf-bZCZROLkrGXDQJswV_jvJQGVXcBr2DGpiJ0PI6kNEzE0j6WpLbcaoVYI2dnd4r8CcoYIQ2L-0TCcANpbTbYW_04Z9eeKyYJUuPRHyw-LFZnBLFfpO2mZ04lN2alMgatCjbKgnX6PRRvp1foUS_Z2QMzkV4iIcmgTeAzQQVdNRQOybtXeePMl8IgSXxCGudDBqTUH5nKnYiTCO3xktf-SxbIVB7EHjbIyWX3fjYulj_scT4Q1Yao9I-_f3gC1Fyh1P82E3H9MVtYbQDbqRbfgVgMkfEHk-NQkmxu-3JHWd-nH6-dOSR_ju_PwR9Iv38zaKpnHz6jrS0VRLAn3QVDkFG3t0k6f3GMQA8hyqdpIaDH9cCAUb-9yukeBlrhpytgiaRRGO_RZWShmA6GRm4fKNZrN_nHPU69j9rck8IeONd7s5ehtWcS_EpNOnFzveFFzfNLDqc41dQKZ4y0xuiiT1FRPLRaZfQFGQqV-SqZuVXwngxH5Kz-rb06I-VV_MCUNZbNgPvmxUkZc5zaYmK53YocxQOmWvlK53R-1uuF-Nsp0JCz8AWuVQTSdcU3LYpk9RZAxWnxbobfgrckAnvcbD_NxUxiPd-hCKVCkb3_c7AH-RABLCPel7MCXGYTdTToUZPaHq" nonce="0d8412476abd4ef1d7152067bf2016a7" charset="UTF-8"></script><style>
+        .title {
+            text-align: center;
+            border-style: solid;
+            border-radius: 10px;
+            border-color: rgb(173, 109, 233);
+            padding: 5px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 130px;
+           
+        }
+        h1 { 
+            color: rgb(61, 10, 83);
+        }
+        h2 {
+            color: rgb(61, 10, 83);
+        }
+        
+        .thumbnails-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+        }
+        .thumbnail {
+            margin: 20px;
+            position: relative;
+        }
+        .thumbnail img {
+            width: 200px; 
+            height: auto;
+            transition: opacity 0.3s ease; 
+        }
+        .thumbnail:hover img {
+            opacity: 0.7; 
+        }
+        .details {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+            transition: opacity 0.3s ease; 
+            width: 200px; 
+            text-align: center; 
+        }
+        .thumbnail:hover .details {
+            display: block;
+            opacity: 1; 
+        }
+        footer{
+            margin-top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Images/logo.png" alt="Website Logo">
+                <span id="websiteName">UNITY</span>
+            </div>
+            <ul class="navLinks">
+                <li><a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/home.html">Home</a></li>
+                <li><a href="" >Gallery</a></li>
+                <li><a href="https://w1947494.users.ecs.westminster.ac.uk/UNITY/shop.html">Shop</a></li>
+                <li><a href="">User Profile</a></li>
+                <li><a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/feedback.html">Feedback Form</a></li>
+                <li><a href="">Sitemap</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="title">
+        <h1>Student Details</h1>
+        <h2>About Us- Hover over the images for details!</h2>
+    </div>
+    <!-- Thumbnail images with extended details -->
+    <div class="thumbnails-wrapper">
+        <div class="thumbnail">
+            <img src="Images/55.png">
+            <div class="details">
+                <h3>Rifat Sadia Bhuiyan</h3>
+                <p>Role: Student 1</p>
+                <p>Designed and implemented pages: <br> Splash Screen | Shop</p>
+            </div>
+        </div>
+
+        <div class="thumbnail">
+            <img src="Images/59.png">
+            <div class="details">
+                <h3>Annie Moradians</h3>
+                <p>Role: Student 2</p>
+                <p>Designed and implemented pages: <br> Home Page | Feedback</p>
+            </div>
+        </div>
+
+        <div class="thumbnail">
+            <img src="Images/98.png">
+            <div class="details">
+                <h3>Ema Maloku</h3>
+                <p>Role: Student 3</p>
+                <p>Designed and implemented pages: <br> User Profile | Team</p>
+            </div>
+        </div>
+      
+        <div class="thumbnail">
+            <img src="Images/10.png">
+            <div class="details">
+                <h3>Excellent Longange</h3>
+                <p>Role: Student 4</p>
+                <p>Designed and implemented pages: <br> Gallery | Sitemap</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span>Page Editors:</span><br>
+        <a href="https://w1947494.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST1.html">Student 1 - Rifat Bhuiyan</a><br>
+        <a href="https://w1892798.users.ecs.westminster.ac.uk/UNITY/pageEditor_ST2.html">Student 2 - Annie Moradians</a><br>
+        <a href="">Student 3 - Ema Maloku</a><br>
+        <a href="">Student 4 - Excellent Longange</a><br>
+    </footer>
+</body>
+</html>
+
